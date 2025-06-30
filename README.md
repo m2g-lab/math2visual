@@ -1,6 +1,10 @@
 # Math2Visual
 Generating Pedagogically Meaningful Visuals for Math Word Problems: A New Benchmark and Analysis of Text-to-Image Models
 
+[Paper Preprint](https://arxiv.org/abs/2506.03735)
+
+[ACL 2025 Video](https://youtu.be/jdPYVoHEPtk)
+
 ## Citation
 ```bibtex
 @inproceedings{wang2025math2visual,
