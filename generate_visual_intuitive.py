@@ -4,7 +4,6 @@ import math
 import os
 from IPython.display import SVG, display
 from collections import defaultdict
-import pandas as pd
 import random
 import copy
 import difflib
