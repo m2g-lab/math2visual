@@ -1,1 +1,5 @@
 .env
+evaluation/
+model_fine-tuning_inference/
+vl_dataset/
+fine-tuning/

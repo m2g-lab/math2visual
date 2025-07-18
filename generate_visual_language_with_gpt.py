@@ -3,11 +3,10 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import time
 # Load environment variables from .env file
-load_dotenv()
+load_dotenv(override=True)
 client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),  # This is the default and can be omitted
 )
-
 def generate_response(prompt, model):
     while True:
         try:
@@ -16,23 +15,25 @@ def generate_response(prompt, model):
                 messages=[{"role": "user", "content": prompt}]
              )
             return completion.choices[0].message.content
-        except:
-            print("Error occurred while generating response. Retrying in 2 seconds...")
+        except Exception as e:
+            print(f"Error {e} occurred while generating response. Retrying in 2 seconds...")
             time.sleep(2)
 
-def generate_prompt(body,question,formula=None):
+def generate_prompt(mwp,formula=None):
     prompt_base = (f'''
     You are an expert at converting math story problem into a structured 'visual language'. Your task is to write a visual language expression based on the given math word problem. 
     **Background information**
         You shoud use the following fixed format for each problem:
         <operation>(
-        container1[entity_name: <name>, entity_type: <type>, entity_quantity: <number>, container_name: <container>, container_type: <container type>, attr_name: <attr>, attr_type: <attr type>],
-        container2[entity_name: <name>, entity_type: <type>, entity_quantity: <number>, container_name: <container>, container_type: <container type>, attr_name: <attr>, attr_type: <attr type>],
-        result_container[entity_name: <name>, entity_type: <type>, entity_quantity: <number>, container_name: <container>, container_type: <container type>, attr_name: <attr>, attr_type: <attr type>]
-        )              
+        container1[entity_name: <entity name>, entity_type: <entity type>, entity_quantity: <number of this entity in this container>, container_name: <container name>, container_type: <container type>, attr_name: <attribute name>, attr_type: <attribute type>],
+        container2[entity_name: <entity name>, entity_type: <entity type>, entity_quantity: <number of this entity in this container>, container_name: <container name>, container_type: <container type>, attr_name: <attribute name>, attr_type: <attribute type>],
+        result_container[entity_name: <entity name>, entity_type: <entity type>, entity_quantity: <number of this entity in this container>, container_name: <container name>, container_type: <container type>, attr_name: <attribute name>, attr_type: <attribute type>]
+        )               
         operation can be ``addition'', ``subtraction'', ``multiplication'', ``division'', ``surplus'', ``area'', ``comparison'', or ``unittrans''.
-        Each container has the attributes: entity_name, entity_type, entity_quantity, container_name, container_type, attr_name, attr_type. In the math word problem description ``Jake picked up three apples in the morning...'' the container1 could be specified as entity_name: apple, entity_type: apple, entity_quantity: 3, container_name: Jake, container_type: boy, attr_name: morning, attr_type: morning. The attributes container_name, container_type, attr_name and attr_type are not fixed and may vary according to different interpretations.
-                
+        
+    Each entity has the attributes: entity_name, entity_type, entity_quantity, container_name, container_type, attr_name, attr_type. Name and type are different, for example, a girl named Lucy may be represented by entity_name: Lucy, entity_type: girl. The attributes container_name, container_type, attr_name and attr_type are optional and may vary according to different interpretations, only use them if you think they are necessary to clarify the entity.
+    In the math word problem description ``Jake picked up three apples in the morning...'' the container1 could be specified as entity_name: apple, entity_type: apple, entity_quantity: 3, container_name: Jake, container_type: boy, attr_name: morning, attr_type: morning.
+                         
     **Examples**
     We first provide you several example, please understand the logic clearly:
     1. Question: Marin has nine apples and Donald has two apples. How many apples do Marin and Donald have together?
@@ -173,31 +174,30 @@ def generate_prompt(body,question,formula=None):
         Good, now try to understand the above requirement step by step. I also provide you with the formula of this question, your visual_language should adapt to this formula, for example, if the formula is multiple addition instead of multiplication, you should use multiple addition.
 
         Once you are ready, you can do the task of converting, you can write down your thinking procedure but please make sure to give me the final visual language of the following question in this format in the end: visual_language:<the visual language result>
-        Question: {body} {question}
+        Question: {mwp}
         Formula: {formula}''')
     else:
         prompt_instruct = (f'''**Task**
         Good, now try to understand the above requirement step by step. 
 
         Once you are ready, you can do the task of converting, you can write down your thinking procedure but please make sure to give me the final visual language of the following question in this format in the end: visual_language:<the visual language result>
-        Question: {body} {question}''')
+        Question: {mwp}''')
 
     prompt = prompt_base + "\n\n" + prompt_instruct
     
     return prompt
 
 
-def generate_visual_language(body, question, formula, model='o3-mini'):
-    visual_language = generate_response(generate_prompt(body, question,formula),model=model)
+def generate_visual_language(mwp, formula, model='o3-mini'):
+    visual_language = generate_response(generate_prompt(mwp,formula),model=model)
     return visual_language
 
 # main function
 if __name__ == "__main__":
-    body = "Janet has nine oranges, and Sharon has seven oranges."
-    question = " How many oranges do Janet and Sharon have together?"
+    mwp = "Janet has nine oranges, and Sharon has seven oranges. How many oranges do Janet and Sharon have together?"
     formula = "9 + 7 = 16" # optional
     
-    visual_language = generate_visual_language(body, question, formula)
+    visual_language = generate_visual_language(mwp, formula)
     # save visual_language into a txt file
     current_dir = os.path.dirname(os.path.abspath(__file__))
     output_dir = os.path.join(current_dir, 'output_visual_language')
