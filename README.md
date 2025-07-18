@@ -5,6 +5,10 @@ Generating Pedagogically Meaningful Visuals for Math Word Problems: A New Benchm
 
 [ACL 2025 Video](https://youtu.be/jdPYVoHEPtk)
 
+[Annotated Visual Language and Visual Dataset](https://huggingface.co/datasets/junling24/Math2Visual-Generating_Pedagogically_Meaningful_Visuals_for_Math_Word_Problems)
+
+[Visual Language Generation Model](https://huggingface.co/junling24/Math2Visual-Visual_Language_Generation)
+
 # Description
 In this project, we present Math2Visual, an automatic framework for generating pedagogically meaningful visuals from math word problem text descriptions. Math2Visual leverages a pre-defined visual language and a design space grounded in interviews with math teachers, to illustrate the core mathematical relationships in math word problems. Using Math2Visual, we construct an annotated dataset of 1,903 visuals and evaluate Text-to-Image (TTI) models for their ability to generate visuals that align with our design. We further fine-tune several TTI models with our dataset, demonstrating improvements in educational visual generation. Our work establishes a new benchmark for automated generation of pedagogically meaningful visuals and offers insights into key challenges in producing multimodal educational content, such as the misrepresentation of mathematical relationships and the omission of essential visual elements.
 
