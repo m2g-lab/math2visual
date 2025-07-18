@@ -43,10 +43,14 @@ echo "OPENAI_API_KEY=<your_openai key>" >> .env
 ```
 ## Step 3: Generate visual language from your math word problem 
 ### Option A: Using Our Fine-tuned Model:
-👉 **[Download our model adapter on Hugging Face](https://huggingface.co/junling24/Math2Visual-Visual_Language_Generation)**
+**[Download our model adapter on Hugging Face](https://huggingface.co/junling24/Math2Visual-Visual_Language_Generation)**
+
 Place the adapter_model.safetensors into model/check-point/
-👉 **[Download base model meta-llama/Llama-3.1-8B on Hugging Face](https://huggingface.co/meta-llama/Llama-3.1-8B)**
+
+**[Download base model meta-llama/Llama-3.1-8B on Hugging Face](https://huggingface.co/meta-llama/Llama-3.1-8B)**
+
 Place the downloaded folder into model/base_model/
+
 Replace the 'mwp' and 'formula' fields with your own math word problem content in generate_visual_language_with_our_model.py (around line 102). Then run:
 ```bash
 python3 generate_visual_language_with_our_model.py
