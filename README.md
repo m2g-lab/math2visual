@@ -97,7 +97,7 @@ It will generate the visual and save it in /output_visual_intuitive/01.svg
 
 ---
 This work is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].  
 For research inquiries, please contact: Junling Wang — wangjun [at] ethz [dot] ch
 
 
