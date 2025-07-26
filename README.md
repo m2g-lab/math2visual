@@ -1,7 +1,7 @@
 # Math2Visual
 Generating Pedagogically Meaningful Visuals for Math Word Problems: A New Benchmark and Analysis of Text-to-Image Models
 
-📄 **[ACL 2025 Findings Paper — Math2Visual](https://arxiv.org/abs/2506.03735)**  
+📄 **[ACL 2025 Findings Paper — Math2Visual](https://aclanthology.org/2025.findings-acl.586/)**  
 
 🎥 **[ACL 2025 Video](https://youtu.be/jdPYVoHEPtk)**  
 
@@ -85,13 +85,28 @@ It will generate the visual and save it in /output_visual_intuitive/01.svg
 
 
 # Citation
+Junling Wang, Anna Rutkiewicz, April Wang, and Mrinmaya Sachan. 2025. Generating Pedagogically Meaningful Visuals for Math Word Problems: A New Benchmark and Analysis of Text-to-Image Models. In Findings of the Association for Computational Linguistics: ACL 2025, pages 11229–11257, Vienna, Austria. Association for Computational Linguistics.
+
 ```bibtex
-@inproceedings{wang2025math2visual,
-  title={Generating Pedagogically Meaningful Visuals for Math Word Problems: A New Benchmark and Analysis of Text-to-Image Models},
-  author={Wang, Junling and Rutkiewicz, Anna and Wang, April Yi and Sachan, Mrinmaya},
-  booktitle={Findings of the Association for Computational Linguistics: ACL 2025},
-  year={2025},
-  url={https://arxiv.org/abs/2506.03735}
+@inproceedings{wang-etal-2025-generating-pedagogically,
+    title = "Generating Pedagogically Meaningful Visuals for Math Word Problems: A New Benchmark and Analysis of Text-to-Image Models",
+    author = "Wang, Junling  and
+      Rutkiewicz, Anna  and
+      Wang, April  and
+      Sachan, Mrinmaya",
+    editor = "Che, Wanxiang  and
+      Nabende, Joyce  and
+      Shutova, Ekaterina  and
+      Pilehvar, Mohammad Taher",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2025",
+    month = jul,
+    year = "2025",
+    address = "Vienna, Austria",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-acl.586/",
+    pages = "11229--11257",
+    ISBN = "979-8-89176-256-5",
+    abstract = "Visuals are valuable tools for teaching math word problems (MWPs), helping young learners interpret textual descriptions into mathematical expressions before solving them.However, creating such visuals is labor-intensive and there is a lack of automated methods to support this process. In this paper, we present Math2Visual, an automatic framework for generating pedagogically meaningful visuals from MWP text descriptions. Math2Visual leverages a pre-defined visual language and a design space grounded in interviews with math teachers, to illustrate the core mathematical relationships in MWPs.Using Math2Visual, we construct an annotated dataset of 1,903 visuals and evaluate Text-to-Image (TTI) models for their ability to generate visuals that align with our design. We further fine-tune several TTI models with our dataset, demonstrating improvements in educational visual generation. Our work establishes a new benchmark for automated generation of pedagogically meaningful visuals and offers insights into key challenges in producing multimodal educational content, such as the misrepresentation of mathematical relationships and the omission of essential visual elements."
 }
 ```
 
