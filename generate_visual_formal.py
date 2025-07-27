@@ -205,18 +205,8 @@ def render_svgs_from_data(output_file, resources_path, data):
             elif parent_priority == current_priority:
                 print("container_name: ", container_name)
                 print("parent_container_name: ", parent_container_name)
-                # Possibly skip brackets if the parent/child op is associative
-                # and container_name is the same, etc. Tweak logic as desired:
                 if not can_skip_same_precedence(parent_op, op):
-                    # It's a non-associative scenario => must bracket
                     need_brackets = True
-                # else:
-                #     # Even if it's associative, maybe you also factor container_name
-                #     # e.g. bracket if container_name differs
-                #     if container_name != parent_container_name:
-                #         need_brackets = True
-                #     if not container_name and not parent_container_name:
-                #         need_brackets = False
 
         # Track how many entities we already had before handling this sub-expression
         start_len = len(entities)
