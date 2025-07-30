@@ -1,4 +1,4 @@
-# Math2Visual
+# 🧮 Math2Visual
 Generating Pedagogically Meaningful Visuals for Math Word Problems: A New Benchmark and Analysis of Text-to-Image Models
 
 📄 **[ACL 2025 Findings Paper — Math2Visual](https://aclanthology.org/2025.findings-acl.586/)**  
