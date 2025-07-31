@@ -25,6 +25,9 @@ We have released the full dataset on Hugging Face, including:
 
 You can preview images and download files directly from the Hugging Face web interface.
 
+<img src="example_operation_math2visual.png" width="1000" height="1000">
+
+
 # Generating Your Own Educational Visuals from Math Word Problems!!
 ## Step 1: Install dependency
 ```bash
