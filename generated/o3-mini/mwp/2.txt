@@ -1,0 +1,1 @@
+There are 7 red circles and 5 blue circles. How many circles are there in total?

@@ -194,8 +194,8 @@ def generate_visual_language(mwp, formula, model='o3-mini'):
 
 # main function
 if __name__ == "__main__":
-    mwp = "Janet has nine oranges, and Sharon has seven oranges. How many oranges do Janet and Sharon have together?"
-    formula = "9 + 7 = 16" # optional
+    mwp = "Sarah has 5 apples, and Tom has 15 apples. Who has more apples?"
+    formula = "" # optional
     
     visual_language = generate_visual_language(mwp, formula)
     # save visual_language into a txt file
